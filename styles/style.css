@@ -1,0 +1,50 @@
+.tetris_container{
+	position: relative;
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+	background-color: rgb(243,243,243);
+
+}
+.tetris_game{
+	position: absolute;
+	width: 200px;
+	height: 400px;
+	top: 20px;
+	left: 20px;
+	border: 1px solid blue;
+}
+.tetris_diamond{
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	top: 20px;
+	left: 300px;
+	border: 1px solid red;
+}
+.tetris_adjunct{
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	top: 120px;
+	left: 300px;
+	border: 1px solid orange;
+}
+.none, .current, .done{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	box-sizing: border-box;
+}
+.none{
+	background-color: #f2faff
+
+}
+.current{
+	background-color: pink;
+	border: 1px solid red;
+}
+.done{
+	background-color: gray;
+	border: 1px solid black;
+}

@@ -3,35 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>tetris</title>
-	<link rel="stylesheet" type="text/css" href="./style.css ">
+	<link rel="stylesheet" type="text/css" href="./styles/style.css">
 </head>
 <body>
-	<div id="game" class="game">
-		
-	</div>
-	<div id="next" class="next">
-		
-	</div>
-	<div class="info">
-		<div>
-			已用时：<span id="time">0</span>s
+	<div id="tetris_container" class="tetris_container">
+		<div id="tetris_game" class="tetris_game">
+			
 		</div>
-		<div>
-			已得分：<span id="score">0</span>s
+		<div id="tetris_diamond" class="tetris_diamond">
+			
+		</div>
+		<div id="tetris_adjunct" class="tetris_adjunct">
+			<div>用时：<span id="tetris_time" class="tetris_time">0</span> s</div>
+			<div>分数：<span id="tetris_score" class="tetris_score">0</span> 分</div>
+			<div id="tetris_gameover"></div>
 		</div>
 	</div>
-	<script type="text/javascript" src="./jsModule/square.js"></script>
-	<script type="text/javascript" src="./jsModule/game.js"></script>
-	<script type="text/javascript" src="./jsModule/squareFactory.js"></script>
-	
-	<script type="text/javascript" src="./jsModule/local.js"></script>
-	<script type="text/javascript" src="./jsModule/remote.js"></script>
+	<script type="text/javascript" src="./jsModule/diamond.js"></script>
+	<script type="text/javascript" src="./jsModule/diamonds.js"></script>
 	<script type="text/javascript" src="./jsModule/script.js"></script>
-	<script type="text/javascript">
-		// document.onkeydown = function(e){
-		// 	console.log(e)
-		// 	console.log(e.keycode)
-		// }
-	</script>
+	<script type="text/javascript" src='./jsModule/local.js'></script>
 </body>
 </html>
