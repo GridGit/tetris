@@ -6,7 +6,7 @@ var Local = function(){
 	// 游戏对象
 	this.game;
 	// 时间间隔
-	this.INERTVAL = 400;
+	this.INERTVAL = 500;
 	// 定时器
 	this.timer = null;
 	// 时间计数器
@@ -33,9 +33,11 @@ var Local = function(){
 				// down
 				_this.game.down();
 			}else if(e.keyCode == 32){
+				e.stopPropagation();
+				e.preventDefault();
 				_this.game.fall();
 			}
-		}
+		};
 	}
 	var that = this;
 	this.autoDown = function(){
@@ -52,22 +54,21 @@ var Local = function(){
 				that.stopGame()
 			}else{
 				that.game.performNext(that.generateType(),that.generateDir());
-			}
-			
+			}		
 		}
 	}
 	// 生成种类随机数
 	this.generateType = function(){
-		return Math.floor(Math.random() * 7);
+		return parseInt(Math.floor(Math.random() * 7));
 	}
 	// 生成旋转随机数
 	this.generateDir = function(){
-		return Math.floor(Math.random() * 4);
+		return  parseInt(Math.floor(Math.random() * 4));
 	}
 	// 记录时间
 	this.recordTime = function(){
 		this.timeOunt += 1;
-		if(this.timeOunt == 5){
+		if(this.timeOunt == Math.round(1000/this.INERTVAL)){
 			this.timeOunt = 0;
 			this.time += 1;
 		}
@@ -98,13 +99,34 @@ var Local = function(){
 		this.game = new Game()
 		// 游戏初始化
 		this.game.init(doms,this.generateType(),this.generateDir());
+		// 页面绑定事件
 		this.bindEvents();
 		this.game.performNext(this.generateType(),this.generateDir());
 		this.timer = setInterval(this.autoDown,this.INERTVAL)
 	}
 }
-var local = new Local();
-local.start();
+
+
+var tetris_start = document.getElementById('tetris_start');
+var startFlag = false
+tetris_start.addEventListener('click',function(e){
+	e.stopPropagation();
+	e.preventDefault();
+	if(!startFlag){
+		var local = new Local();
+		local.start();
+		startFlag = true;
+	}
+	this.style.display = 'none';
+})
+
+console.log(window.innerWidth)
+console.log(window.innerHeight)
+var documentHeight = window.innerHeight;
+var documentWidth = window.innerWidth;
+var tetris_background = document.getElementById('tetris_background');
+console.log(tetris_background);
+tetris_background.style.height = documentHeight + 'px';
 
 
 
