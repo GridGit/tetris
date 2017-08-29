@@ -39,22 +39,22 @@ var Local = function(){
 	this.bindEvents = function(){
 		var _this = this;
 		document.onkeydown = function(e){
-			if(e.keyCode == 37){
+			if(e.keyCode == 37 || e.keyCode == 65){
 				e.stopPropagation();
 				e.preventDefault();
 				// left
 				_this.game.left();
-			}else if(e.keyCode == 38){
+			}else if(e.keyCode == 38 || e.keyCode == 87){
 				e.stopPropagation();
 				e.preventDefault();
 				// up
 				_this.game.rotate();
-			}else if(e.keyCode == 39){
+			}else if(e.keyCode == 39 || e.keyCode == 68){
 				e.stopPropagation();
 				e.preventDefault();
 				// right
 				_this.game.right();
-			}else if(e.keyCode == 40){
+			}else if(e.keyCode == 40 || e.keyCode == 83){
 				e.stopPropagation();
 				e.preventDefault();
 				// down
@@ -195,8 +195,8 @@ var Local = function(){
 
 var tetris_newgame = document.getElementById('tetris_newgame');
 var tetris_end = document.getElementById('tetris_end');
-var outTimer
-var local
+var outTimer;
+var local =  null;
 tetris_newgame.addEventListener('click',function(e){
 	e.stopPropagation();
 	e.preventDefault();
@@ -207,6 +207,20 @@ tetris_newgame.addEventListener('click',function(e){
 	local = new Local();
 	local.start();
 })
+tetris_end.addEventListener('click',function(e){
+	e.stopPropagation();
+	e.preventDefault();
+	if(outTimer){
+		clearInterval(outTimer);
+		outTimer = null;
+	}
+	if(local){
+		local.clearFn();
+		local.game.clear();
+		local = null;
+	}
+	
+})
 
 
 var documentHeight = window.innerHeight;
@@ -214,7 +228,7 @@ var documentWidth = window.innerWidth;
 var tetris_background = document.getElementById('tetris_background');
 tetris_background.style.height = documentHeight + 'px';
 
-
+console.log(window)
 
 
 

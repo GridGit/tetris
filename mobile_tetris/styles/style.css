@@ -7,45 +7,182 @@
 	.tetris_background{
 		width: 100%;
 		background-image: url('../resources/star1.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
 		
+	}
+	.tetris_title{
+		/*position: relative;
+		top: 5px;
+		left: 5px;*/
+		width: 200px;
+		font-size: 16px;
+		text-align: center;
+		margin: 0 auto;
 	}
 	.tetris_container{
 		position: relative;
 		margin: 0 auto;
-		width: 600px;
-		height: 600px;
-		background-color: rgb(243,243,243);
+		width: 320PX;
+		height: 320PX;
+		text-align: center;
+		/*background-color: rgb(243,243,243);*/
 
 	}
 	.tetris_game{
-		position: relative;
+		position: absolute;
 		width: 200px;
 		height: 400px;
+		top: 90px;
+		left: 60px;
 		border: 1px solid blue;
+		box-shadow: 1px 1px 1px blue;
+		border-top: none;
 	}
 	.tetris_diamond{
-		position: relative;
+		position: absolute;
 		width: 80px;
 		height: 80px;
+		top: 5px;
+		left: 220px;
 		border: 1px solid red;
+		box-shadow: 1px 1px 2px red;
+	}
+	.tetris_next{
+		position: absolute;
+		font-size: 14px;
+		top: 100px;
+		left: 270px;
 	}
 	.tetris_adjunct{
-		position: relative;
-		width: 120px;
+		position: absolute;
+		width: 50px;
 		height: 120px;
-		border: 1px solid orange;
+		top: 10px;
+		left: 0px;
+		/*color: black;*/
+	}
+	
+	.tetris_grade{
+		font-size: 14px;
+		/*color: black;*/
+	}
+	.tetris_time{
+		margin-top: 15px;
+		font-size: 12px;
+		/*color: black;*/
+	}
+	.tetris_time span{
+		/*display: block;*/
+	}
+	.tetris_score{
+		margin-top: 15px;
+		font-size: 12px;
+		/*color: black;*/
 	}
 	.tetris_control{
-		position: relative;
-		width: 120px;
-		height: 120px;
-		border: 1px solid orange;
+		/*position: absolute;*/
+		width: 80px;
+		height: 80px;
+		/*top: 380px;
+		left: 140px;*/
+		/*color: black;*/
+		/*border: 1px solid orange;*/
 	}
-	.tetris_start{
-		width: 60px;
+	.tetris_up{
+		display: none;
+		position: absolute;
+		width: 40px;
+		height: 30px;
+		left: 270px;
+		background-color: orange;
+		line-height: 30px;
+		text-align: center;
+	}
+	.tetris_right{
+		position: absolute;
+		width: 40px;
+		height: 30px;
+		top: 260px;
+		left: 270px;
+		background-color: orange;
+		text-align: center;
+		line-height: 30px;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	.tetris_down{
+		position: absolute;
+		width: 40px;
+		height: 30px;
+		background-color: orange;
+		text-align: center;
+		line-height: 30px;
+		top: 360px;
+		left: 270px;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	.tetris_left{
+		position: absolute;
+		width: 40px;
+		height: 30px;
+		background-color: orange;
+		text-align: center;
+		line-height: 30px;
+		top: 310px;
+		left: 5px;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	.tetris_rotate{
+		position: absolute;
+		top: 240px;
+		left: 5px;
+		width: 40px;
 		height: 40px;
 		line-height: 40px;
+		border-radius: 20px;
 		background-color: orange;
+		text-align: center;
+		cursor: pointer;
+	}
+	.tetris_fall{
+		position: absolute;
+		top: 380px;
+		left: 15px;
+		width: 20px;
+		height: 40px;
+		line-height: 20px;
+		border-radius: 5px;
+		background-color: orange;
+		text-align: center;
+		cursor: pointer;
+	}
+	.tetris_gameover{
+
+	}
+	.tetris_newgame{
+		position: absolute;
+		top: 500px;
+		left: 60px;
+		width: 80px;
+		height: 20px;
+		line-height: 20px;
+		border-radius: 5px;
+		background-color: orange;
+		cursor: pointer;
+	}
+	.tetris_end{
+		position: absolute;
+		top: 500px;
+		left: 170px;
+		width: 80px;
+		height: 20px;
+		line-height: 20px;
+		border-radius: 5px;
+		background-color: orange;
+		cursor: pointer;
 	}
 	.none, .current, .done{
 		width: 20px;
@@ -54,17 +191,18 @@
 		box-sizing: border-box;
 	}
 	.none{
-		background-color: #f2faff;
-		border: 0.1px solid gray;
+		/*background-color: #f2faff;*/
+		border: 0.1px solid rgb(127,127,127);
+		border-width: 0.1px;
 
 	}
 	.current{
-		background-color: pink;
-		border: 1px solid red;
+		background-color: red;
+		border: 0.1px solid rgb(127,127,127);
 	}
 	.done{
 		background-color: gray;
-		border: 1px solid black;
+		border: 0.1px solid black;
 	}
 
 }
@@ -73,45 +211,170 @@
 	.tetris_background{
 		width: 100%;
 		background-image: url('../resources/star1.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
 		
+	}
+	.tetris_title{
+		width:200px;
+		font-size: 24px;
+		text-align: center;
+		margin: 0 auto;
+		padding-top: 10px;
 	}
 	.tetris_container{
 		position: relative;
 		margin: 0 auto;
-		width: 600px;
-		height: 600px;
-		background-color: rgb(243,243,243);
+		top: 20px;
+		width: 700px;
+		height: 700px;
+		text-align: center;
+		/*background-color: rgb(243,243,243);*/
 
 	}
 	.tetris_game{
-		position: relative;
+		position: absolute;
 		width: 300px;
 		height: 600px;
-		border: 1px solid blue;
+		top: 10px;
+		left: 200px;
+		border: 2px solid blue;
+		box-shadow: 4px 4px 5px blue;
+		border-top: none;
 	}
 	.tetris_diamond{
-		position: relative;
-		width: 80px;
-		height: 80px;
+		position: absolute;
+		width: 120px;
+		height: 120px;
+		top: 100px;
+		left: 535px;
 		border: 1px solid red;
+		box-shadow: 2px 2px 4px red;
+	}
+	.tetris_next{
+		position: absolute;
+		font-size: 24px;
+		top: 60px;
+		left: 575px;
 	}
 	.tetris_adjunct{
-		position: relative;
+		position: absolute;
 		width: 120px;
 		height: 120px;
-		border: 1px solid orange;
+		top: 60px;
+		left: 45px;
+	}
+	
+	.tetris_grade{
+		font-size: 24px;
+	}
+	.tetris_time{
+		margin-top: 15px;
+		font-size: 18px;
+
+	}
+	.tetris_score{
+		margin-top: 15px;
+		font-size: 18px;
 	}
 	.tetris_control{
-		position: relative;
-		width: 120px;
-		height: 120px;
-		border: 1px solid orange;
+		position: absolute;
+		width: 140px;
+		height: 140px;
+		top: 380px;
+		left: 535px;
+		/*border: 1px solid orange;*/
 	}
-	.tetris_start{
-		width: 60px;
+	.tetris_up{
+		display: none;
+		position: absolute;
+		width: 40px;
+		height: 30px;
+		left: 50px;
+		background-color: orange;
+		line-height: 30px;
+		text-align: center;
+	}
+	.tetris_right{
+		position: absolute;
+		width: 50px;
+		height: 40px;
+		top: 50px;
+		left: 100px;
+		background-color: orange;
+		text-align: center;
+		line-height: 40px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	.tetris_down{
+		position: absolute;
+		width: 50px;
+		height: 40px;
+		background-color: orange;
+		text-align: center;
+		line-height: 40px;
+		top: 120px;
+		left: 50px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	.tetris_left{
+		position: absolute;
+		width: 50px;
+		height: 40px;
+		background-color: orange;
+		text-align: center;
+		line-height: 40px;
+		top: 50px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	.tetris_rotate{
+		position: absolute;
+		top: 390px;
+		left: 90px;
+		width: 80px;
+		height: 80px;
+		line-height: 80px;
+		border-radius: 40px;
+		background-color: orange;
+		text-align: center;
+		cursor: pointer;
+	}
+	.tetris_fall{
+		position: absolute;
+		top: 500px;
+		left: 110px;
+		width: 40px;
+		height: 80px;
+		line-height: 80px;
+		border-radius: 50px;
+		background-color: orange;
+		text-align: center;
+		cursor: pointer;
+	}
+	.tetris_newgame{
+		position: absolute;
+		top: 630px;
+		left: 235px;
+		width: 80px;
 		height: 40px;
 		line-height: 40px;
+		border-radius: 10px;
 		background-color: orange;
+		cursor: pointer;
+	}
+	.tetris_end{
+		position: absolute;
+		top: 630px;
+		left: 365px;
+		width: 80px;
+		height: 40px;
+		line-height: 40px;
+		border-radius: 10px;
+		background-color: orange;
+		cursor: pointer;
 	}
 	.none, .current, .done{
 		width: 30px;
@@ -120,17 +383,18 @@
 		box-sizing: border-box;
 	}
 	.none{
-		background-color: #f2faff;
-		border: 0.1px solid gray;
+		/*background-color: #f2faff;*/
+		border: 0.1px solid rgb(127,127,127);
+		border-width: 0.1px;
 
 	}
 	.current{
-		background-color: pink;
-		border: 1px solid red;
+		background-color: red;
+		border: 0.1px solid rgb(127,127,127);
 	}
 	.done{
 		background-color: gray;
-		border: 1px solid black;
+		border: 0.1px solid black;
 	}
 
 }
@@ -138,13 +402,25 @@
 	.tetris_background{
 		width: 100%;
 		background-image: url('../resources/star1.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
 		
+	}
+	.tetris_title{
+		width: 200px;
+
+		font-size: 30px;
+		line-height: 30px;
+		text-align: center;
+		margin: 0 auto;
+		padding-top: 5px;
 	}
 	.tetris_container{
 		position: relative;
 		margin: 0 auto;
+		/*top: 25px;*/
 		width: 700px;
-		height: 800px;
+		height: 760px;
 		text-align: center;
 		/*background-color: rgb(243,243,243);*/
 
@@ -273,7 +549,7 @@
 	}
 	.tetris_newgame{
 		position: absolute;
-		top: 730px;
+		top: 725px;
 		left: 250px;
 		width: 80px;
 		height: 40px;
@@ -284,7 +560,7 @@
 	}
 	.tetris_end{
 		position: absolute;
-		top: 730px;
+		top: 725px;
 		left: 370px;
 		width: 80px;
 		height: 40px;

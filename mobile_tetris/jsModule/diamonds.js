@@ -273,7 +273,7 @@ DiamondFactory.prototype.generate = function(index,dir){
 		break;
 	}
 	singDiamond.origin.x = 0;
-	singDiamond.origin.y = 1;
+	singDiamond.origin.y = 4;
 	singDiamond.rotate(dir);
 	return singDiamond;
 }
