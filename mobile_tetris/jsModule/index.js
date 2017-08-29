@@ -66,6 +66,7 @@ var Local = function(){
 			}
 		};
 		if(window.innerWidth >= 750){
+			console.log('大于 750')
 			var _this = this;
 			// 左
 			this.doms.tetris_left.onclick = function(e){
@@ -108,7 +109,43 @@ var Local = function(){
 			
 
 		}else if(window.innerWidth < 750){
+			console.log("小与 750")
+			document.ontouchstart = function(e){
+				console.log(e)
+			}
 
+			var _this = this;
+			// 左
+			
+			this.doms.tetris_left.addEventListener('touchstart',function(e){
+				console.log(e)
+				e.preventDefault();
+				_this.game.left();
+			})
+			// 右
+			
+			this.doms.tetris_right.addEventListener('touchstart',function(e){
+				e.preventDefault();
+				_this.game.right();
+			})
+			// 下
+			
+			this.doms.tetris_down.addEventListener('touchstart',function(e){
+				e.preventDefault();
+				_this.game.down();
+			})
+			// 旋转
+			
+			this.doms.tetris_rotate.addEventListener('touchstart',function(e){
+				e.preventDefault();
+				_this.game.rotate();
+			})
+			// 坠落
+			
+			this.doms.tetris_fall.addEventListener('touchstart',function(e){
+				e.preventDefault();
+				_this.game.fall();
+			})
 		}
 	}
 	var that = this;
@@ -228,7 +265,6 @@ var documentWidth = window.innerWidth;
 var tetris_background = document.getElementById('tetris_background');
 tetris_background.style.height = documentHeight + 'px';
 
-console.log(window)
 
 
 
